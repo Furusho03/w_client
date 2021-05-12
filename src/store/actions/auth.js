@@ -2,7 +2,7 @@
 import { apiCall, setTokenHeader } from "../../services/api";
 // actions
 import { SET_CURRENT_USER } from "../actionTypes";
-import { addError, removeError } from "./errors";
+import { addError } from "./errors";
 
 export function setCurrentUser(user) {
   return {
@@ -35,6 +35,7 @@ export function authUser(type, userData) {
           resolve(); // API呼び出しが成功した
         })
         .catch((err) => {
+          console.log("action authUser err",err)
           dispatch(addError(err.message));
           reject(); // API呼び出しが失敗した
         });

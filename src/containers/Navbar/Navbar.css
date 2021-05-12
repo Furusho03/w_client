@@ -1,0 +1,45 @@
+.navbar {
+  background-color: #f2da91;
+  padding: 10px;
+}
+
+.nav-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-logo > img {
+  display: inline-block;
+  width: 105px;
+  margin-bottom: 2px;
+  margin-right: 5px;
+  border-radius: 2px;
+}
+
+.nav-right {
+  width: 25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0;
+}
+
+.nav-login-right {
+  width: 32rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0;
+}
+
+.nav-right li a {
+  color: #2d3436;
+  font-weight: 600;
+}
+
+.nav-login-right li a {
+  color: #2d3436;
+  font-weight: 600;
+}

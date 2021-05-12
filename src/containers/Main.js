@@ -1,21 +1,30 @@
 import React from "react";
-import { Switch, Route, withRouter, Redirect } from "react-router-dom";
+import { Switch, Route, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 // components
-import Homepage from "../components/Homepage";
-import AuthForm from "../components/AuthForm";
+import Homepage from "../components/Homepage/Homepage";
+import AuthForm from "../components/AuthForm/AuthForm";
 // actions
 import { authUser } from "../store/actions/auth";
 import { removeError } from "../store/actions/errors";
 // hoc
 import withAuth from "../hocs/withAuth";
 // containers
-import MessageForm from './MessageForm'
+import UsersList from "./UsersList";
+import ProfilePge from "./ProfilePge";
+//  Book
+import BookList from "./Books/BookList";
+import BootTimeLine from "./Books/BookTimeLine";
+// Post
+import PostsList from "./Posts/PostsList";
+import PostList from "./Posts/PostList";
+import PostTypeLists from "./Posts/PostTypeLists";
+import NewPost from "./Posts/NewPost";
 
 const Main = (props) => {
   const { authUser, errors, currentUser } = props;
   return (
-    <div className="container">
+    <div className="hero-container">
       <Switch>
         <Route
           exact
@@ -31,7 +40,7 @@ const Main = (props) => {
                 removeError={removeError}
                 errors={errors}
                 onAuth={authUser}
-                buttonText="Login"
+                buttonText="ログイン"
                 heading="ログイン"
                 {...props}
               />
@@ -47,8 +56,8 @@ const Main = (props) => {
                 removeError={removeError}
                 errors={errors}
                 onAuth={authUser}
-                buttonText="Sign me up"
-                heading="Warbler アカウントを作成"
+                buttonText="アカウントを作成"
+                heading="Toybox アカウントを作成"
                 signUp
                 {...props}
               />
@@ -56,9 +65,34 @@ const Main = (props) => {
           }}
         />
         <Route
-          path="/users/:id/messages/new"
-          component={withAuth(MessageForm)}
+          exact
+          path="/all-users"
+          render={(props) => <UsersList {...props} />}
         />
+        <Route exact path="/profile/:id" component={withAuth(ProfilePge)} />
+        {/* --------------------------------------------------------------------------- */}
+        <Route
+          exact
+          path="/books"
+          render={(props) => <BookList {...props} />}
+        />
+        <Route
+          exact
+          path="/books/:id"
+          render={(props) => <BootTimeLine {...props} />}
+        />
+        <Route exact path="/posts" render={(props) => <PostsList {...props}/>} />
+        <Route
+          exact
+          path="/posts/:id/list"
+          render={(props) => <PostList {...props} />}
+        />
+        <Route
+          exact
+          path="/posts/:id/lists"
+          render={(props) => <PostTypeLists {...props} />}
+        />
+        <Route exact path="/posts/:id/new" component={withAuth(NewPost)} />
       </Switch>
     </div>
   );

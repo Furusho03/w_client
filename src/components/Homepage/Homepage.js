@@ -1,16 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
 // components
-import MessageTimeline from "./MessageTimeline"
+import PostsList from "../../containers/Posts/PostsList";
+import './Homepage.css'
 
 const Homepage = ({ currentUser }) => {
   if (!currentUser.isAuthenticated) {
     return (
       <div className="home-hero">
-        <h1>What's Happened</h1>
-        <h4>New to Warbler?</h4>
-        <Link to="/signup" className="btn btn-primary">
-          登録
+        <h1>ようこそ ToyBox へ</h1>
+        <h4>投稿してみませんか？</h4>
+        <Link to="/signup" className="h-btn">
+          アカウントを作成する
         </Link>
       </div>
     );
@@ -18,9 +19,9 @@ const Homepage = ({ currentUser }) => {
 
   return (
     <div>
-      <MessageTimeline profileImageUrl={currentUser.user.profileImageUrl} username={currentUser.user.username} />
+      <PostsList />
     </div>
-  )
+  );
 };
 
 export default Homepage;
