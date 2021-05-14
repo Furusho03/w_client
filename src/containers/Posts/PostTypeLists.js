@@ -24,6 +24,7 @@ class PostTypeLists extends Component {
           <div>
             {postsType.postType.map((post) => (
               <div key={post._id}>
+                <img height="400" width="250" src={post.book.image} alt={post.book.id} />
                 <ul>
                   <li>コメント: {post.comment}</li>
                   <li>感情メーター: {post.feelings}</li>

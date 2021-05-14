@@ -16,6 +16,10 @@ class ProfilePge extends Component {
     this.props.getFollo(this.props.currentUser);
   }
 
+  componentDidUpdate = (e) => {
+    console.log(e)
+  }
+
   render() {
     const { profile, currentUser, follow } = this.props;
     console.log(profile);

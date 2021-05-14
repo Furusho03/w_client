@@ -11,7 +11,7 @@ class NewPost extends Component {
       text: "",
       comment: "",
       icon: "",
-      feeling: "",
+      feelings: "",
     };
   }
   componentDidMount() {
@@ -34,8 +34,9 @@ class NewPost extends Component {
 
   render() {
     const { book, errors } = this.props;
-    const { text, comment, feeling } = this.state;
+    const { text, comment, feelings } = this.state;
     console.log("errors", errors);
+    console.log("bookpostslist", this.props);
     return (
       <div className="newPost-wrapper">
         {Object.keys(book).length === 0 ? (
@@ -43,7 +44,7 @@ class NewPost extends Component {
         ) : (
           <div>
             <div className="newPost-container">
-              <img className="bookImage" src="/images/test1.jpg" alt="a" />
+              <img className="bookImage" src={this.props.book[0].image} alt="a" />
               <form className="newPost-form" onSubmit={this.handleSubmit}>
                 <div className="newPost-input">
                   <label htmlFor="text">
@@ -93,10 +94,10 @@ class NewPost extends Component {
                     <input
                       type="range"
                       id="feeling"
-                      name="feeling"
+                      name="feelings"
                       min="-10"
                       max="10"
-                      value={feeling}
+                      value={feelings}
                       onChange={this.handleChange}
                     />
                   </div>
