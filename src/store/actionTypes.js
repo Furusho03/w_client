@@ -16,3 +16,6 @@ export const READ_BOOK = "READ_BOOK";
 export const LOAD_POSTS = "LOAD_POSTS";
 export const LOAD_POSTS_TYPE = "LOAD_POSTS_TYPE";
 export const LOAD_POST = "LOAD_POST";
+
+export const PROFILE_UPDATE = "PROFILE_UPDATE";
+export const CHANGE_PASSWORDS = "CHANGE_PASSWORDS";

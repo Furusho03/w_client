@@ -12,6 +12,8 @@ import withAuth from "../hocs/withAuth";
 // containers
 import UsersList from "./UsersList";
 import ProfilePge from "./ProfilePge";
+import ProfileUpdate from './ProfileUpdate'
+import PasswordChange from './Passwordchange'
 //  Book
 import BookList from "./Books/BookList";
 import BootTimeLine from "./Books/BookTimeLine";
@@ -93,6 +95,8 @@ const Main = (props) => {
           render={(props) => <PostTypeLists {...props} />}
         />
         <Route exact path="/posts/:id/new" component={withAuth(NewPost)} />
+        <Route exact path="/profile/:id/update" component={withAuth(ProfileUpdate)} />
+        <Route exact path="/profile/:id/change" component={withAuth(PasswordChange)} />
       </Switch>
     </div>
   );

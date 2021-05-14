@@ -26,7 +26,6 @@ class NewPost extends Component {
   };
 
   handleSubmit = (e) => {
-    console.log(this.props.match.params.id);
     e.preventDefault();
     this.props.newPost(this.props.match.params.id, this.state);
     this.setState({ text: "", comment: "", icon: "", feeling: "" });

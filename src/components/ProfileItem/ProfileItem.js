@@ -2,7 +2,7 @@ import React from "react";
 import FollowList from "../FollowList";
 
 const ProfileItem = ({ profile, currentUser, follow }) => {
-  console.log("follow",follow)
+  // console.log("follow",follow)
   return (
     <div>
       {currentUser && (
