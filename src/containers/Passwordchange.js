@@ -33,7 +33,7 @@ class ProfileUpdate extends Component {
   render() {
     const { password, newPassword } = this.state;
     return (
-      <div>
+      <div className="p-change">
         <form onSubmit={this.handleSubmit}>
           <p>
             パスワードを変更する場合は現在のパスワードを入力して新しいパスワードを入力してください

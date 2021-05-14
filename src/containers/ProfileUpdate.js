@@ -34,7 +34,7 @@ class ProfileUpdate extends Component {
   render() {
     const { username, age, email } = this.state;
     return (
-      <div>
+      <div className="p-updateProfile">
         <form onSubmit={this.handleSubmit}>
           <label htmlFor="username">ユーザーネーム</label>
           <input

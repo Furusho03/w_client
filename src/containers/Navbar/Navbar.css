@@ -1,6 +1,6 @@
 .navbar {
   background-color: #f2da91;
-  padding: 10px;
+  padding: 0.5rem;
 }
 
 .nav-container {
@@ -12,14 +12,16 @@
 
 .navbar-logo > img {
   display: inline-block;
-  width: 105px;
+  width: 7rem;
   margin-bottom: 2px;
   margin-right: 5px;
   border-radius: 2px;
 }
 
 .nav-right {
-  width: 25rem;
+  /* border: 1px solid red; */
+  width: 22rem;
+  font-size: 0.9rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -27,7 +29,9 @@
 }
 
 .nav-login-right {
-  width: 32rem;
+  /* border: 1px solid red; */
+  width: 24rem;
+  font-size: 0.9rem;
   display: flex;
   justify-content: space-between;
   align-items: center;

@@ -18,9 +18,9 @@ class ProfilePge extends Component {
 
   render() {
     const { profile, currentUser, follow } = this.props;
-    // console.log(profile);
+    console.log(profile);
     return (
-      <div>
+      <div className="profile-page-container">
         <ProfileItem
           profile={profile}
           currentUser={currentUser}

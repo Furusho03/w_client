@@ -6,22 +6,26 @@ const ProfileItem = ({ profile, currentUser, follow }) => {
   return (
     <div>
       {currentUser && (
-        <ul>
-          <h6>ユーザー名:</h6>
-          <li>{profile.username}</li>
-          <br />
-          <h6>メールアドレス:</h6>
-          <li>{profile.email}</li>
-          <br />
-          <h6>フォローした人</h6>
-          {follow === undefined || follow.length === 0 ? (<div>フォローしていません</div>): (
+        <div>
+          <div className="profileItem-item  item-username">
+            <div>ユーザー名:</div>
+            <div>{profile.username}</div>
+          </div>
+          <div className="profileItem-item  item-email">
+            <div>メールアドレス:</div>
+            <div>{profile.email}</div>
+          </div>
+          <h4>フォローした人</h4>
+          {follow === undefined || follow.length === 0 ? (
+            <div>フォローしていません</div>
+          ) : (
             <div>
-              {follow.map(f => (
+              {follow.map((f) => (
                 <FollowList key={f._id} username={f.username} />
               ))}
             </div>
           )}
-        </ul>
+        </div>
       )}
     </div>
   );

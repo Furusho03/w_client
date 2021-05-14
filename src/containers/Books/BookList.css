@@ -1,5 +1,13 @@
 .bookList-container {
+  /* border: 1px solid red; */
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 34rem;
+  margin: 5px;
+}
+
+.bookList-container  img {
+  width: 29rem;
+  height: 30rem;
 }

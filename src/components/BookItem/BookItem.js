@@ -4,7 +4,7 @@ import './BookItem.css'
 
 const BookList = ({ id, title, text, image,}) => {
   return (
-    <div className="bookkList-container">
+    <div className="bookList-container">
       <Link to={`/books/${id}`}>
         <h1>{title}</h1>
         <h4>{text}</h4>

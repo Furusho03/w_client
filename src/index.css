@@ -131,6 +131,12 @@ input:focus {
   align-items: center;
 }
 
+.bookTimeLine-container img {
+  /* border: 1px solid red; */
+  width: 29rem;
+  height: 30rem;
+}
+
 .bookTimeLine-link {
   display: flex;
   justify-content: space-between;
@@ -144,6 +150,7 @@ input:focus {
   font-weight: 600;
   border-radius: 10px;
   padding: 0.5rem 0.8rem;
+  margin: 0 5px;
 }
 
 /* ------------------------------------------------------------------------ */
@@ -166,14 +173,14 @@ input:focus {
 }
 
 .newPost-container > img {
-  height: 33rem
+  height: 33rem;
 }
 
 .newPost-form {
   /* border: 1px solid red; */
   width: 500px;
   display: flex;
-  flex-direction:  column;
+  flex-direction: column;
   justify-content: space-around;
 }
 
@@ -224,4 +231,96 @@ input:focus {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+}
+/* ------------------------------- */
+/* PostList */
+
+.postsList-image-container > img {
+  width: 30rem;
+  height: 25rem;
+}
+
+/* ------------------------------------------------- */
+/* Profile */
+.profile-page-container {
+  /* border: 1px solid red; */
+  /* background-color: #b2bec3; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.profileItem-item {
+  /* border: 1px solid red;  */
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: space-around;
+}
+
+.item-username {
+  /* border: 1px solid red;  */
+  width: 25rem;
+  margin-bottom: 5px;
+}
+
+.item-email {
+  /* border: 1px solid red;  */
+  width: 25rem;
+}
+
+/* --------------------------------- */
+/* profileupdate */
+.p-updateProfile {
+  /* border: 1px solid red; */
+  height: 20rem;
+}
+
+.p-updateProfile form {
+  /* border: 1px solid blue; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.p-updateProfile form input {
+  width: 20rem;
+}
+
+.p-updateProfile form button {
+  margin-top: 20px;
+  background: #00b894;
+  width: 20rem;
+  height: 3rem;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  box-shadow: 1px 1px 5px #2d3436;
+}
+/* passwordchange */
+
+.p-change form {
+  /* border: 1px solid blue; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.p-change form input {
+  width: 20rem;
+}
+
+.p-change form button {
+  margin-top: 20px;
+  background: #00b894;
+  width: 20rem;
+  height: 3rem;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  box-shadow: 1px 1px 5px #2d3436;
 }
