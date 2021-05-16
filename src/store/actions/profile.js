@@ -7,16 +7,19 @@ import {
   GET_PROFILE,
   GET_FOLLOW,
   PROFILE_UPDATE,
+  GET_PROFILE_ERROR,
 } from "../actionTypes";
 
-export const getProfile = (profile) => ({
+export const getProfile = (profile, load) => ({
   type: GET_PROFILE,
   profile,
+  load,
 });
 
-export const profileUpdate = (profile) => ({
+export const profileUpdate = (profile, load) => ({
   type: PROFILE_UPDATE,
   profile,
+  load,
 });
 
 export const getFollow = (follow) => ({
@@ -31,7 +34,11 @@ export const fetchProfile = (user_id) => {
         dispatch(getProfile(res));
       })
       .catch((err) => {
-        addError(err.message);
+        addError({
+          type: GET_PROFILE_ERROR,
+          load: true,
+          error: err.message
+        });
       });
   };
 };

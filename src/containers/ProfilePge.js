@@ -11,26 +11,30 @@ import {
 import ProfileItem from "../components/ProfileItem/ProfileItem";
 
 class ProfilePge extends Component {
-  componentDidMount() {
-    this.props.fetchProfile(this.props.currentUser);
-    this.props.getFollo(this.props.currentUser);
+  constructor(props) {
+    super(props);
+    props.fetchProfile(this.props.currentUser);
+    props.getFollo(this.props.currentUser);
   }
 
-  componentDidUpdate = (e) => {
-    console.log(e)
+  componentDidMount() {
+    // this.props.fetchProfile(this.props.currentUser);
+    // this.props.getFollo(this.props.currentUser);
   }
 
   render() {
-    const { profile, currentUser, follow } = this.props;
-    console.log(profile);
+    const { profile, currentUser, follow, load } = this.props;
     return (
       <div className="profile-page-container">
         <ProfileItem
+          load={load.load}
           profile={profile}
           currentUser={currentUser}
           follow={follow.followUser}
         />
-        <Link to={`/profile/${currentUser}/update`}>プロフィールを更新する</Link>
+        <Link to={`/profile/${currentUser}/update`}>
+          プロフィールを更新する
+        </Link>
         <Link to={`/profile/${currentUser}/change`}>パスワードを変更する</Link>
       </div>
     );
@@ -42,6 +46,7 @@ const mapStateToProps = (state) => {
     profile: state.profile,
     follow: state.follow,
     currentUser: state.currentUser.user.id,
+    load: state.load,
   };
 };
 

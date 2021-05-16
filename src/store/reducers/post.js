@@ -1,18 +1,29 @@
-import { LOAD_POSTS, LOAD_POSTS_TYPE, LOAD_POST } from "../actionTypes";
+import { LOAD_POSTS, LOAD_POSTS_TYPE, LOAD_POST, LOAD_POSTS_ERROR } from "../actionTypes";
 
-export const posts = (state = {}, action) => {
-  switch (action.type) {
+const initialState = {
+  posts: null,
+  loaddata: false,
+  errors: {},
+};
+
+export const posts = (state = initialState, action) => {
+  const { type, posts } = action;
+
+  switch (type) {
     case LOAD_POSTS:
-      return {...action.posts};
+      return { ...state, posts: posts, loaddata: true };
+    case LOAD_POSTS_ERROR:
+      return { ...state, errors: posts, loaddata: false };
     default:
       return state;
   }
 };
 
-export const postsType = (state = {}, action) => {
-  switch (action.type) {
+export const postsType = (state = initialState, action) => {
+  const { type, postsType } = action;
+  switch (type) {
     case LOAD_POSTS_TYPE:
-      return {...action.postsType};
+      return { ...state, posts: postsType, loaddata: true };
     default:
       return state;
   }

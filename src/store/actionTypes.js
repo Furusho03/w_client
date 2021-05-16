@@ -19,3 +19,10 @@ export const LOAD_POST = "LOAD_POST";
 
 export const PROFILE_UPDATE = "PROFILE_UPDATE";
 export const CHANGE_PASSWORDS = "CHANGE_PASSWORDS";
+
+export const LOAD_DATA = "LOAD_DATA";
+export const ADD_NEW_ERROR = "ADD_NEW_ERROR";
+export const GET_PROFILE_ERROR = "GET_PROFILE_ERROR";
+
+export const LOAD_POSTS_ERROR = "LOAD_POSTS_ERROR";
+export const NEW_POST_ERROR = "NEW_POST_ERROR";

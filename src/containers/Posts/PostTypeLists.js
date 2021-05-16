@@ -1,50 +1,55 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 // import { Link } from "react-router-dom";
+import PostTimeline from "../../components/PostTimeline";
 
 import { fetchPostsType } from "../../store/actions/post";
 
 class PostTypeLists extends Component {
   constructor(props) {
     super(props);
-    console.log(props);
+    props.fetchPostsType(this.props.match.params.id);
   }
-  componentDidMount() {
-    this.props.fetchPostsType(this.props.match.params.id);
-  }
+
   render() {
-    const { postsType } = this.props;
-    console.log("postTypeLists",postsType);
+    const { postsType, loaddata } = this.props;
     return (
       <div>
-        {Object.keys(postsType).length === 0 ||
-        postsType.postType.length === 0 ? (
-          <div>投稿がありません</div>
+        {loaddata === false ||
+        postsType === null ||
+        postsType.postsType.length === 0 ? (
+          <div className="postsList-container">
+            <div>投稿がありません</div>
+          </div>
         ) : (
-          <div>
-            {postsType.postType.map((post) => (
-              <div key={post._id}>
-                <img height="400" width="250" src={post.book.image} alt={post.book.id} />
-                <ul>
-                  <li>コメント: {post.comment}</li>
-                  <li>感情メーター: {post.feelings}</li>
-                  <li>気持ちアイコン: {post.icon}</li>
-                  <li>テキスト: {post.text}</li>
-                  <li>ユーザー: {post.user.username}</li>
-                </ul>
-                <br />
-              </div>
+          <div className="postsList-container">
+            {postsType.postsType.map((post) => (
+              <PostTimeline post={post} key={post._id} />
             ))}
           </div>
         )}
+
+        {/* {loaddata !== true ||
+        Object.keys(postsType).length === 0 ||
+        postsType.postsType.length === 0 ? (
+          <div>投稿がありません</div>
+        ) : (
+          <div className="postsList-container">a
+            {postsType.postsType.map((post) => (
+              <PostTimeline post={post} key={post._id} />
+            ))}
+          </div>
+        )} */}
       </div>
     );
   }
 }
 
 const mapStateToProps = (state) => {
+  console.log(state);
   return {
-    postsType: state.postsType,
+    postsType: state.postsType.posts,
+    loaddata: state.postsType.loaddata,
   };
 };
 

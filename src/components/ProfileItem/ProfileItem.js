@@ -1,11 +1,10 @@
 import React from "react";
 import FollowList from "../FollowList";
 
-const ProfileItem = ({ profile, currentUser, follow }) => {
-  // console.log("follow",follow)
+const ProfileItem = ({ profile, currentUser, follow, load }) => {
   return (
     <div>
-      {currentUser && (
+      {currentUser && load === false ? (
         <div>
           <div className="profileItem-item  item-username">
             <div>ユーザー名:</div>
@@ -26,7 +25,7 @@ const ProfileItem = ({ profile, currentUser, follow }) => {
             </div>
           )}
         </div>
-      )}
+      ) : (<div>?</div>)}
     </div>
   );
 };

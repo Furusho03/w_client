@@ -63,6 +63,7 @@ input:focus {
   border: 3px solid #2d3436;
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
+  border-radius: 6px;
 }
 
 .postsList-image-container {

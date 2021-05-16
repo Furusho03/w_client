@@ -1,15 +1,14 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import Moment from "react-moment";
 
 import facebook from "../images/facebook.png";
 import instagram from "../images/instagram.png";
 import twitter from "../images/twitter.png";
 
-const PostTimeLine = ({ post }) => {
+const PostListItem = ({ post }) => {
+  console.log(post);
   return (
     <div className="postsList" key={post._id}>
-      <Link to={`/posts/${post._id}/list`}>
         <div>
           <div className="postsList-image-container">
             <h1 className="postsList-top-text">
@@ -28,7 +27,6 @@ const PostTimeLine = ({ post }) => {
             </Moment>
           </div>
         </div>
-      </Link>
       <div className="postList-social">
         <a href="https://facebook.com">
           <img src={facebook} alt={facebook} />
@@ -44,4 +42,4 @@ const PostTimeLine = ({ post }) => {
   );
 };
 
-export default PostTimeLine;
+export default PostListItem;

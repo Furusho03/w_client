@@ -27,6 +27,7 @@ class ProfileUpdate extends Component {
       age: "",
       email: "",
     });
+    console.log(this.state.load)
     this.props.history.push(`/profile/${this.props.currentUser}`);
   };
 
