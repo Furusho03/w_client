@@ -1,4 +1,10 @@
-import { LOAD_POSTS, LOAD_POSTS_TYPE, LOAD_POST, LOAD_POSTS_ERROR } from "../actionTypes";
+import {
+  LOAD_POSTS,
+  LOAD_POSTS_TYPE,
+  LOAD_POST,
+  LOAD_POSTS_ERROR,
+  LOAD_MY_POST,
+} from "../actionTypes";
 
 const initialState = {
   posts: null,
@@ -33,6 +39,15 @@ export const post = (state = {}, action) => {
   switch (action.type) {
     case LOAD_POST:
       return { ...action.post };
+    default:
+      return state;
+  }
+};
+
+export const myPost = (state = [], action) => {
+  switch (action.type) {
+    case LOAD_MY_POST:
+      return { ...state, myPost: action.payload };
     default:
       return state;
   }

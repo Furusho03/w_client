@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { newPost } from "../../store/actions/post";
 import { fetchBook } from "../../store/actions/books";
 import NewPostForm from "../../components/NewPostForm";
+import { removeNewError } from "../../store/actions/errors";
 
 class NewPost extends Component {
   constructor(props) {
@@ -20,11 +21,11 @@ class NewPost extends Component {
         ) : (
           <div>
             <NewPostForm
+              removeNewError={removeNewError}
               book={book}
               newError={newError}
               newPost={this.props.newPost}
-              params={this.props.match.params.id}
-              history={this.props.history}
+              {...this.props}
             />
           </div>
         )}

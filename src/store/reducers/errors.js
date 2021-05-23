@@ -29,9 +29,18 @@ export const newError = (state = initialState, action) => {
     case ADD_NEW_ERROR:
       return { ...state, message: error };
     case NEW_POST_ERROR:
-      console.log("error", error);
-      console.log("state", state);
       return { ...state, message: error, post: false };
+    case REMOVE_ERROR:
+      return { ...state, message: null, post: true };
+    default:
+      return state;
+  }
+};
+
+export const removeError = (state = initialState, action) => {
+  switch (action.type) {
+    case REMOVE_ERROR:
+      return { ...state, message: null };
     default:
       return state;
   }

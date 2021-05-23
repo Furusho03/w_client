@@ -5,7 +5,7 @@ import { errors, newError } from "./errors";
 import { users } from "./users";
 import { profile, follow, load} from "./profile";
 import { books, book } from "./books";
-import { posts, postsType, post } from "./post";
+import { posts, postsType, post, myPost } from "./post";
 
 const rootReducer = combineReducers({
   currentUser,
@@ -20,6 +20,7 @@ const rootReducer = combineReducers({
   posts,
   postsType,
   post,
+  myPost
 });
 
 export default rootReducer;

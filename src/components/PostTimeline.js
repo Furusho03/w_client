@@ -23,9 +23,7 @@ const PostTimeLine = ({ post }) => {
           <div className="postsList-comment">{post.comment}</div>
           <div className="postList-author">
             <div>{post.user.username}</div>
-            <Moment format="YYYY/MM/DD">
-              <div>投稿日: {post.createdAt}</div>
-            </Moment>
+            <Moment format="YYYY/MM/DD">{post.createdAt}</Moment>
           </div>
         </div>
       </Link>

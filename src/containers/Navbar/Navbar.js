@@ -24,9 +24,9 @@ class Navbar extends Component {
           </div>
           {this.props.currentUser.isAuthenticated ? (
             <ul className="nav-login-right">
-              {/* <li>
-                <Link to={"/posts"}>全ての投稿</Link>
-              </li> */}
+              <li>
+                <Link to={`/posts/${this.props.currentUser.user.id}/myposts`}>自分の投稿</Link>
+              </li>
               <li>
                 <Link to={"/books"}>Books</Link>
               </li>

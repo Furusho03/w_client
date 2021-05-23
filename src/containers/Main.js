@@ -22,6 +22,7 @@ import PostsList from "./Posts/PostsList";
 import PostList from "./Posts/PostList";
 import PostTypeLists from "./Posts/PostTypeLists";
 import NewPost from "./Posts/NewPost";
+import MyPostList from '../components/MyPostList'
 
 const Main = (props) => {
   const { authUser, errors, currentUser } = props;
@@ -97,6 +98,7 @@ const Main = (props) => {
         <Route exact path="/posts/:id/new" component={withAuth(NewPost)} />
         <Route exact path="/profile/:id/update" component={withAuth(ProfileUpdate)} />
         <Route exact path="/profile/:id/change" component={withAuth(PasswordChange)} />
+        <Route exact path="/posts/:id/myposts" component={withAuth(MyPostList)} />
       </Switch>
     </div>
   );

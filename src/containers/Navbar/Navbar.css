@@ -20,7 +20,7 @@
 
 .nav-right {
   /* border: 1px solid red; */
-  width: 22rem;
+  width: 25rem;
   font-size: 0.9rem;
   display: flex;
   justify-content: space-between;
@@ -30,7 +30,7 @@
 
 .nav-login-right {
   /* border: 1px solid red; */
-  width: 24rem;
+  width: 30rem;
   font-size: 0.9rem;
   display: flex;
   justify-content: space-between;

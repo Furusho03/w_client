@@ -26,3 +26,4 @@ export const GET_PROFILE_ERROR = "GET_PROFILE_ERROR";
 
 export const LOAD_POSTS_ERROR = "LOAD_POSTS_ERROR";
 export const NEW_POST_ERROR = "NEW_POST_ERROR";
+export const LOAD_MY_POST = "LOAD_MY_POST";

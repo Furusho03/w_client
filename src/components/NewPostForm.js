@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import love from "../images/love_emo.png";
+import NewErrorMessage from "./ErrorMessage/NewErrorMessage";
 
 class NewPostForm extends Component {
   constructor(props) {
@@ -11,7 +12,7 @@ class NewPostForm extends Component {
       feelings: "",
       popup: false,
     };
-    console.log(props);
+    // console.log(props);
   }
 
   handleChange = (e) => {
@@ -24,7 +25,7 @@ class NewPostForm extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     this.props
-      .newPost(this.props.params, this.state)
+      .newPost(this.props.match.params.id, this.state)
       .then(() => {
         this.props.history.push("/");
       })
@@ -41,16 +42,24 @@ class NewPostForm extends Component {
   };
 
   render() {
-    const { book, newError } = this.props;
+    const { book, newError, removeNewError, history } = this.props;
     const { text, comment, feelings } = this.state;
-    console.log("newErrors", newError);
+    // console.log("this.props", this.props);
+    // console.log("newErrors", newError);
+    // console.log("removeNewErrors", removeNewError);
+    history.listen(() => {
+      console.log("hist");
+      removeNewError();
+    });
     return (
       <div className="newPost-wrapper">
+        {newError.message && (
+          <div>
+            <NewErrorMessage errors={newError} />
+          </div>
+        )}
         <div>
           <div className="newPost-container">
-            {newError.message !== null && (
-              <div>{newError.message.map((message, i) => <div key={i}>{message.msg}</div>)}</div>
-            )}
             <img className="bookImage" src={book[0].image} alt="a" />
             <form className="newPost-form" onSubmit={this.handleSubmit}>
               <div className="newPost-input">
@@ -78,7 +87,7 @@ class NewPostForm extends Component {
               </div>
 
               <div className="newPost-row">
-                <div className="newPost-icon">@
+                <div className="newPost-icon">
                   <h4 onClick={this.toggle}>気持ちアイコン</h4>
                   {this.state.popup === true ? (
                     <div className="newPost-icon-wrapper">
