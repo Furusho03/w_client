@@ -11,13 +11,13 @@ class PostsList extends Component {
 
   renderList() {
     if (this.props.posts.message) {
-      console.log("b", this.props.posts.message);
       return <div>{this.props.posts.message}</div>;
-    } else if (this.props.length !== 0) {
-      console.log("a");
-      return <div>a</div>;
+    } else if (this.props.length !== 0 && this.props.loaddata === true) {
+      console.log(this.props);
+      return this.props.posts.posts.map((post) => {
+        return <PostTimeLine post={post} key={post._id} />;
+      });
     } else {
-      console.log("c");
       return <div>投稿はありません!</div>;
     }
   }
@@ -33,8 +33,6 @@ class PostsList extends Component {
           )} */
 
   render() {
-    const { posts, loaddata } = this.props;
-    console.log(posts);
     return (
       <div>
         <div className="postsList-container">{this.renderList()}</div>
